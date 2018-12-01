@@ -35,7 +35,7 @@ public class XMLFile {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		d.getDocumentElement().normalize();
+		//d.getDocumentElement().normalize();
 		NodeList cdElements = d.getElementsByTagName("CD");
 		return cdElements;
 	}

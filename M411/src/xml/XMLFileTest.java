@@ -17,9 +17,9 @@ public class XMLFileTest {
 		
 		Node node = null;
 		for (int i=0; i<nodeList.getLength(); i++) {
-			node = findSubNode("ARTIST", nodeList.item(i));
+			node = findSubNode("COUNTRY", nodeList.item(i));
 			NodeList textList = node.getChildNodes();
-			System.out.println("Artist = " + textList.item(0).getNodeValue());
+			System.out.println("Country = " + textList.item(0).getNodeValue());
 		}
 		
 		
