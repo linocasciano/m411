@@ -15,6 +15,9 @@ public class WebServiceClient {
 		this.url = url;
 	}
 	
+	public InputStream getInputStream() throws IOException {
+		return url.openStream();
+	}
 	
 	public BufferedReader getBufferedReader() throws IOException {
 		BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));

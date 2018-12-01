@@ -2,6 +2,7 @@ package xml;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 
 public class WebServiceClientTest {
@@ -13,6 +14,8 @@ public class WebServiceClientTest {
 	    String format = "geojson";
 		String query = "query?format=" + format + "&starttime=2016-09-29&endtime=2016-09-30&minmagnitude=5";
 		URL url = new URL(host + path + query);
+		WebServiceClient wsc = new WebServiceClient(url);
+		InputStream is = wsc.getInputStream();		
 		print(url);
 		
 		
