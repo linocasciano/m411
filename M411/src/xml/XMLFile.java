@@ -16,18 +16,18 @@ import org.xml.sax.SAXException;
 
 public class XMLFile {
 	private Document d = null;
+	File f = null;
 
 	public XMLFile(String xmlFileName) {
-		init(new File(xmlFileName));
+		f = new File(xmlFileName);
 	}
 
-	private void init(File f) {
+	public NodeList generateNodeList() {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			d = db.parse(f);
-			//TODO comment and explain
-			//d.getDocumentElement().normalize();
+			
 		} catch (ParserConfigurationException e) {
 			e.printStackTrace();
 		} catch (SAXException e) {
@@ -35,7 +35,11 @@ public class XMLFile {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		d.getDocumentElement().normalize();
+		NodeList cdElements = d.getElementsByTagName("CD");
+		return cdElements;
 	}
+	
 	
 	public NodeList getElementsByTagName(String tag) {
 		return d.getElementsByTagName(tag);
@@ -55,22 +59,23 @@ public class XMLFile {
 			node = nodeList.item(i);
 			if (node.getNodeType() == Node.ELEMENT_NODE) {
                 Element elem = (Element) node;
+                
+                String artist = elem.getElementsByTagName("ARTIST")
+                        .item(0).getChildNodes().item(0).getNodeValue();
+                
+                String title = elem.getElementsByTagName("TITLE")
+                        .item(0).getChildNodes().item(0).getNodeValue();
+                
+                
+                String country = elem.getElementsByTagName("COUNTRY")
+                        .item(0).getChildNodes().item(0).getNodeValue();
+                
+                String year = elem.getElementsByTagName("YEAR")
+                        .item(0).getChildNodes().item(0).getNodeValue();
+                
 
-                // Get the value of the ID attribute.
-                String ID = node.getAttributes().getNamedItem("ID").getNodeValue();
-
-                // Get the value of all sub-elements.
-                String firstname = elem.getElementsByTagName("Firstname")
-                                    .item(0).getChildNodes().item(0).getNodeValue();
-
-                String lastname = elem.getElementsByTagName("Lastname").item(0)
-                                    .getChildNodes().item(0).getNodeValue();
-
-                Integer age = Integer.parseInt(elem.getElementsByTagName("Age")
-                                    .item(0).getChildNodes().item(0).getNodeValue());
-
-                Double salary = Double.parseDouble(elem.getElementsByTagName("Salary")
-                                    .item(0).getChildNodes().item(0).getNodeValue());
+                cd = new CD(title, country, artist, Integer.parseInt(year));
+                cdList.add(cd);
 
            }
 		}

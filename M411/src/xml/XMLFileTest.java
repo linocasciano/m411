@@ -10,16 +10,36 @@ public class XMLFileTest {
 	public static void main(String[] args) {
 
 		//TODO create the xml file on the file system
-		XMLFile xmlFile = new XMLFile("/users/capa/Employees.xml");
+		XMLFile xmlFile = new XMLFile("/users/capa/music.xml");
 		
 		
-		ArrayList<CD> cdList = xmlFile.getCDList();
+		NodeList nodeList = xmlFile.generateNodeList();
 		
-		/*NodeList cdElements = xmlFile.getElementsByTagName("CD");
-		Node n;
-		for (int i=0; i<cdElements.getLength(); i++) {
-			System.out.println(cdElements.item(i));
-		}*/
+		Node node = null;
+		for (int i=0; i<nodeList.getLength(); i++) {
+			node = findSubNode("ARTIST", nodeList.item(i));
+			NodeList textList = node.getChildNodes();
+			System.out.println("Artist = " + textList.item(0).getNodeValue());
+		}
+		
+		
+/*		ArrayList<CD> cdList = xmlFile.getCDList();
+		cdList.forEach((cd)->System.out.println(cd));*/
+		
+	}
+
+	public static Node findSubNode(String name, Node node) {
+		NodeList list = node.getChildNodes();
+		Node subnode;;
+		for (int i = 0; i < list.getLength(); i++) {
+			subnode = list.item(i);
+			if (subnode.getNodeType() == Node.ELEMENT_NODE) {
+				if (subnode.getNodeName().equals(name)) {
+					return subnode;
+				}
+			}
+		}
+		return null;
 	}
 
 }

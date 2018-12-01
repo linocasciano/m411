@@ -47,5 +47,10 @@ public class CD {
 		this.year = year;
 	}
 	
+	@Override
+	public String toString() {
+		return "CD [title=" + title + ", country=" + country + ", artist=" + artist + ", year=" + year + "]";
+	}
+	
 
 }
