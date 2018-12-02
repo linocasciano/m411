@@ -47,7 +47,8 @@ public class WebServiceClientTest {
 			DocumentBuilder db = XMLUtil.newDocumentBuilder();
 			System.out.println("Calling " + url.toString());
 			Document d = db.parse(url.openStream());
-			XMLUtil.iterate(d.getDocumentElement());
+			//XMLUtil.iterate(d.getDocumentElement());
+			XMLUtil.parseRecursive(d.getDocumentElement());
 			
 /*			Node r = d.getDocumentElement();
 			XMLUtil.iterate(r);
