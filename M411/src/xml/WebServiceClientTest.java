@@ -48,12 +48,12 @@ public class WebServiceClientTest {
 			System.out.println("Calling " + url.toString());
 			Document d = db.parse(url.openStream());
 			//XMLUtil.iterate(d.getDocumentElement());
-			XMLUtil.parseRecursive(d.getDocumentElement());
+			//XMLUtil.parseRecursive(d.getDocumentElement());
 			
-/*			Node r = d.getDocumentElement();
+			Node r = d.getDocumentElement();
 			XMLUtil.iterate(r);
 		    System.out.println("Done.");
-			print(url);*/
+			//print(url);
 			
 		}
 		
