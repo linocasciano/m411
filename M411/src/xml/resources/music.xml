@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CATALOG>
+   <CD>
+      <TITLE>Greatest Hits</TITLE>
+      <ARTIST>Elvis</ARTIST>
+      <COUNTRY>USA</COUNTRY>
+      <YEAR>1977</YEAR>
+   </CD>
+   <CD>
+      <TITLE>Greatest Hits</TITLE>
+      <ARTIST>Police</ARTIST>
+      <COUNTRY>UK</COUNTRY>
+      <YEAR>1977</YEAR>
+   </CD>
+</CATALOG>
