@@ -7,17 +7,18 @@ import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 public class XMLFileTest {
 
 	public static void main(String[] args) throws SAXException, IOException {
 
-		String filename = "/users/capa/music.xml";
-	
+		String filename = "/resources/music.xml";			
 		DocumentBuilder db = XMLUtil.newDocumentBuilder();
-
-		Document d = db.parse(new File(filename));
+	    InputSource source = new InputSource(XMLFileTest.class.getResourceAsStream(filename)); 
+		Document d = db.parse(source);
+		
 		NodeList nodeList = d.getElementsByTagName("CD");
 
 		Node node = null;
