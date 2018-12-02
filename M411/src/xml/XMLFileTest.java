@@ -30,6 +30,7 @@ public class XMLFileTest {
 			System.out.println("Country = " + textList.item(0).getNodeValue());
 		}
 		
+		System.out.println(d.getDocumentElement().getNodeName());
 		XMLUtil.parseRecursive(d.getDocumentElement());
 
 	}
