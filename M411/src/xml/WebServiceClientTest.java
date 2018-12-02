@@ -11,6 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
@@ -46,14 +47,12 @@ public class WebServiceClientTest {
 			DocumentBuilder db = XMLUtil.newDocumentBuilder();
 			System.out.println("Calling " + url.toString());
 			Document d = db.parse(url.openStream());
-			NodeList nodeList = d.getChildNodes();
-			Node n = null;
-			for (int i=0; i<nodeList.getLength(); i++) {
-				XMLUtil.iterate(nodeList.item(i));
-				
-			}
-			System.out.println("Done.");
-			//print(url);
+			XMLUtil.iterate(d.getDocumentElement());
+			
+/*			Node r = d.getDocumentElement();
+			XMLUtil.iterate(r);
+		    System.out.println("Done.");
+			print(url);*/
 			
 		}
 		
