@@ -7,15 +7,16 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class XMLUtil {
-	
-	public static Node findSubNode(String name, Node node ) {
+
+	public static Node findSubNode(String name, Node node) {
 		NodeList list = node.getChildNodes();
-		Node subnode;;
+		Node subnode;
 		for (int i = 0; i < list.getLength(); i++) {
 			subnode = list.item(i);
 			if (subnode.getNodeType() == Node.ELEMENT_NODE) {
@@ -26,7 +27,7 @@ public class XMLUtil {
 		}
 		return null;
 	}
-	
+
 	public static DocumentBuilder newDocumentBuilder() throws SAXException, IOException {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = null;
@@ -37,21 +38,44 @@ public class XMLUtil {
 		}
 		return db;
 	}
+
 	
-	public static void iterate(Node n) {
-		System.out.println("Iterating...");
-		NodeList nodeList = n.getChildNodes();
-		Node o = null;
-		for (int i=0; i<nodeList.getLength(); i++) {
-			o = nodeList.item(i);
-			if (o!=null) {
-				iterate(n);
+	public static void parseRecursive(Node n) {
+		if (n.hasChildNodes()) {
+			NodeList children = n.getChildNodes();
+			Node child = null;
+			for (int i=0; i<children.getLength(); i++) {
+				child = children.item(i);
+				System.out.println(child.getNodeName());
+				parseRecursive(child);
 			}
-			if (o.getNodeType() == Node.ELEMENT_NODE) {
-				System.out.println(o);
+				
+		} else {
+			System.out.println(n.getNodeName());
+		}
+	}
+	public static void iterate(Node p) {
+		// System.out.println("Iterating...");
+		NodeList childNodes = p.getChildNodes();
+		Node c = null;
+		for (int i = 0; i < childNodes.getLength(); i++) {
+			c = childNodes.item(i);
+			// iterate(c);
+			// System.out.println(c);
+			if (c.getNodeType() == Node.ELEMENT_NODE) {
+				Element e = (Element) c;
+				
+				if (c.getNodeName().equals("description")) {
+					System.out.println("description");
+					NodeList tmpList = e.getChildNodes();
+					for (int j=0; j<tmpList.getLength(); j++) {
+						System.out.print("\t[" + tmpList.item(j).getNodeName() + "] = ");
+						System.out.println("\t[" + tmpList.item(j).getTextContent() + "]");
+					}
+				}
+				iterate(c);
 			}
 		}
-		
 	}
 
 }
