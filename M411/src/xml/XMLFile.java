@@ -46,8 +46,17 @@ public class XMLFile {
 	}
 	
 	public Node findSubNode(String name, Node node ) {
-		return node;
-		//TODO implement
+		NodeList list = node.getChildNodes();
+		Node subnode;;
+		for (int i = 0; i < list.getLength(); i++) {
+			subnode = list.item(i);
+			if (subnode.getNodeType() == Node.ELEMENT_NODE) {
+				if (subnode.getNodeName().equals(name)) {
+					return subnode;
+				}
+			}
+		}
+		return null;
 	}
 	
 	public ArrayList<CD> getCDList() {
