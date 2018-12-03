@@ -27,7 +27,7 @@ public class XMLFileTest {
 		for (int i = 0; i < nodeList.getLength(); i++) {
 			node = XMLUtil.findSubNode("TITLE", nodeList.item(i));
 			NodeList textList = node.getChildNodes();
-			System.out.println("Country = " + textList.item(0).getNodeValue());
+			System.out.println("TITLE = " + textList.item(0).getNodeValue());
 		}
 		
 		System.out.println(d.getDocumentElement().getNodeName());
