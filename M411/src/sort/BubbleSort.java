@@ -1,5 +1,7 @@
 package sort;
 
+import helper.Util;
+
 /**
  * @author capa
  *
@@ -31,6 +33,7 @@ public class BubbleSort {
 				}
 			}
 			passes++;
+			Util.printArray(a);
 			if (!swapped) { break; }
 		}
 		

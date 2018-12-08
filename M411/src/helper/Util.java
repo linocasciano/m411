@@ -66,9 +66,14 @@ public class Util {
 		
 	}	
 	public static void printArray(int[] a) {
+		System.out.print("[");
 		for (int l=0; l<a.length; l++) {
-			System.out.println(a[l]);
+			System.out.print(a[l]);
+			if (l<a.length-1) {
+				System.out.print(",");
+			}
 		}
+		System.out.println("]");
 	}
 	
 	public static int[] fileToArray(String fileName) throws IOException, FileNotFoundException {
