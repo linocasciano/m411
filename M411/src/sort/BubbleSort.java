@@ -32,7 +32,6 @@ public class BubbleSort {
 			}
 			passes++;
 			if (!swapped) { break; }
-
 		}
 		
 		System.out.println("Array sorted in [" + passes + "] passes");
