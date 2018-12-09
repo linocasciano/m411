@@ -7,6 +7,10 @@ public class MyBinaryTreeNode {
 	MyBinaryTreeNode left = null;
 	MyBinaryTreeNode parent = null;
 	
+	public MyBinaryTreeNode(Integer element) {
+		this.element = element;
+	}
+	
 	public Integer getElement() {
 		return element;
 	}
@@ -17,12 +21,14 @@ public class MyBinaryTreeNode {
 		return right;
 	}
 	public void setRight(MyBinaryTreeNode right) {
+		right.setParent(this);
 		this.right = right;
 	}
 	public MyBinaryTreeNode getLeft() {
 		return left;
 	}
 	public void setLeft(MyBinaryTreeNode left) {
+		left.setParent(this);
 		this.left = left;
 	}
 	public MyBinaryTreeNode getParent() {
