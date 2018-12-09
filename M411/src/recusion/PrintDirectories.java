@@ -5,7 +5,7 @@ import java.io.File;
 public class PrintDirectories {
 
 	public static void main(String[] args) {
-		printDirectories(new File("C:\\Daten\\"));
+		printDirectories(new File("C:\\Temp"));
 	}
 	
 	public static void printDirectories(File f) {
@@ -13,7 +13,7 @@ public class PrintDirectories {
 		if (!f.isDirectory()) {
 			return;
 		} else {
-			System.out.println(f);
+			//System.out.println(f);
 		}
 		File[] fileList = f.listFiles();
 		if (fileList == null) {
@@ -24,6 +24,7 @@ public class PrintDirectories {
 		for (File g : fileList) {
 			printDirectories(g);
 		}
+		System.out.println(f);
 	}
 
 }
