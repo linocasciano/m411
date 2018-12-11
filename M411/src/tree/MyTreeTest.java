@@ -1,15 +1,22 @@
 package tree;
 
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+
 public class MyTreeTest {
 
 	public static void main(String[] args) {
-		Node root = generateTree();
-		traverseBreathFirst(root, " ");
+		MyTree myTree = generateTree();
+		//traverseDepthFirst(root, " ");
+		breathFirst(myTree.getRoot());
 
 	}
 
-	private static Node generateTree() {
+	private static MyTree generateTree() {
 		Node root = new Node(0);
+		MyTree myTree = new MyTree();
+		myTree.setRoot(root);
+		
 		Node node1 = root.addChild(new Node(1));
 		Node node2 = root.addChild(new Node(2));
 		Node node3 = root.addChild(new Node(3));
@@ -26,12 +33,24 @@ public class MyTreeTest {
 		node3.addChild(new Node(11));
 		node3.addChild(new Node(12));
 
-		return root;
+		return myTree;
 	}
 
-	private static void traverseBreathFirst(Node node, String appender) {
+	private static void traverseDepthFirst(Node node, String appender) {
+		node.getChildren().forEach(each -> traverseDepthFirst(each, appender + appender));
 		System.out.println(appender + node.getData());
-		node.getChildren().forEach(each -> traverseBreathFirst(each, appender + appender));
+	}
+
+	private static void breathFirst(Node root) {
+		LinkedList<Node> queue = new LinkedList<Node>();
+		queue.add(root);
+		Node current;
+		while (!queue.isEmpty()) {
+			current = queue.removeFirst();
+			System.out.println(current.getData());	
+			current.getChildren().forEach(each -> queue.add(each));
+		}
+
 	}
 
 }

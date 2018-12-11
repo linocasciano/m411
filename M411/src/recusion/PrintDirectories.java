@@ -7,6 +7,7 @@ public class PrintDirectories {
 	public static void main(String[] args) {
 		// printDirectories(new File("/users/capa"));
 		searchFile(new File("/users/capa/"), "test.rtf");
+		printDirectories(new File("C:\\Temp"));
 	}
 
 	public static void printDirectories(File f) {
@@ -14,7 +15,7 @@ public class PrintDirectories {
 		if (!f.isDirectory()) {
 			return;
 		} else {
-			System.out.println(f);
+			//System.out.println(f);
 		}
 		File[] fileList = f.listFiles();
 		if (fileList == null) {
@@ -25,6 +26,7 @@ public class PrintDirectories {
 		for (File g : fileList) {
 			printDirectories(g);
 		}
+		System.out.println(f);
 	}
 
 	public static void searchFile(File directory, String filename) {
