@@ -55,8 +55,8 @@ public class MyLinkedList {
 	
 	public void add(Object item, int pos) {
 		if (pos > count) { return; }
-		//add a new element at the beginning
 		
+		//add a new element at the beginning
 		if (pos == 0) {
 			Node newNode = new Node(item);
 			newNode.setNext(head.getNext());
@@ -91,11 +91,19 @@ public class MyLinkedList {
 			currentPos++;
 			if (currentPos == pos) {
 				previous.setNext(current.getNext());
+				count--;
 			}
-			
-		}
-		
+		}	
 	}
+	
+	/**
+	 * Removes the last element of the list
+	 */
+	public void remove() {
+		this.remove(count);
+	}
+	
+	
 	public void showItems() {
 		Node current = head;
 		while (current.next != null) {
@@ -114,8 +122,18 @@ public class MyLinkedList {
 		reversed.showItems();
 	}
 	
-	public void insertAfter(Node posNode, Node addNode) {
-		//TODO
+	public void insertAfter(Object pos, Object add) {
+		Node current = head;
+		Node previous = head;
+		while (current.getNext() != null) {
+			previous = current;
+			current = current.getNext();
+			if (current.getItem().equals(pos)) {
+				Node node = new Node(add);
+				node.setNext(current.getNext());
+				current.setNext(node);
+			}
+		}
 	}
 
 	public void remove(Object item) {
@@ -127,6 +145,7 @@ public class MyLinkedList {
 			if (current.getItem() != null) {
 				if (current.getItem().equals(item)) {
 					previous.setNext(current.getNext());
+					count--;
 				}
 
 			}

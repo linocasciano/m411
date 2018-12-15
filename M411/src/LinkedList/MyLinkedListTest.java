@@ -10,15 +10,18 @@ public class MyLinkedListTest {
 		myLinkedList.append("are");
 		myLinkedList.append("you,");
 		myLinkedList.append("doing?");
-		myLinkedList.append("are");
 		
 		myLinkedList.showItems();
 		
-		myLinkedList.remove("are");
+		myLinkedList.insertAfter("Arnold,", "my dear friend, ");
+		
+		myLinkedList.showItems();
+		//myLinkedList.remove("are");
+		//myLinkedList.remove();
 		//myLinkedList.remove(5);
 		//myLinkedList.add("Huber", 2);
 		
-		myLinkedList.showItems();
+		//myLinkedList.showItems();
 		//myLinkedList.showItemsReversed();
 	}
 

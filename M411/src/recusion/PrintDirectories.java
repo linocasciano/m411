@@ -6,8 +6,8 @@ public class PrintDirectories {
 
 	public static void main(String[] args) {
 		// printDirectories(new File("/users/capa"));
-		searchFile(new File("/users/capa/"), "test.rtf");
-		printDirectories(new File("C:\\Temp"));
+		//searchFile(new File("/users/capa/"), "test.rtf");
+		printDirectories(new File("/users/capa/tmp"));
 	}
 
 	public static void printDirectories(File f) {
