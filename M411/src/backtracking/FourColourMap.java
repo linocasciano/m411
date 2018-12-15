@@ -77,6 +77,7 @@ public class FourColourMap {
 		
 	}
 	
+
 	private boolean isConsitent(int[] a, int i) {
 		ArrayList<Integer> neighbours;
 		for (int j = 0; j<=i; j++) {
@@ -86,8 +87,7 @@ public class FourColourMap {
 				neighbour = neighbours.get(k);
 				if (j==neighbour) { continue; }
 				if (a[j] == a[neighbour]) { return false; }
-			}
-			
+			}			
 		}
 		return true;
 	}
