@@ -21,14 +21,14 @@ public class MyBinaryTreeNode {
 		return right;
 	}
 	public void setRight(MyBinaryTreeNode right) {
-		right.setParent(this);
+		if (right != null) { right.setParent(this); }
 		this.right = right;
 	}
 	public MyBinaryTreeNode getLeft() {
 		return left;
 	}
 	public void setLeft(MyBinaryTreeNode left) {
-		left.setParent(this);
+		if (left != null) { left.setParent(this); }
 		this.left = left;
 	}
 	public MyBinaryTreeNode getParent() {
@@ -36,6 +36,10 @@ public class MyBinaryTreeNode {
 	}
 	public void setParent(MyBinaryTreeNode parent) {
 		this.parent = parent;
+	}
+
+	public boolean isLeave() {
+		return left == null && right == null;
 	}
 
 }

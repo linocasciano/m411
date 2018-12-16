@@ -12,9 +12,9 @@ public class MyBinaryTreeTest {
 		for (int i=0; i<a.length; i++) {
 			myBinaryTree.insert(a[i]);
 		}
-		if (!myBinaryTree.isEmpty()) {
-			inOrderTraversal(myBinaryTree.getRoot());
-		}
+		System.out.println("Tree populated.");
+		myBinaryTree.remove(1);
+
 
 	}
 
