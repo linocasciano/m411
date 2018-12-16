@@ -8,12 +8,17 @@ public class MyBinaryTreeTest {
 		//MyBinaryTree myBinaryTree = generateBinaryTree();
 		
 		MyBinaryTree myBinaryTree = new MyBinaryTree();
-		int[] a = {6, 9, 3, 17, 2, 98, 55, 1, 32, 42, 15, 6, 7, 85, 10};
+		int[] a = {6, 9, 3, 17, 2, 98, 55, 1, 32, 42, 15, 6, 7, 85, 10, 8};
 		for (int i=0; i<a.length; i++) {
 			myBinaryTree.insert(a[i]);
 		}
 		System.out.println("Tree populated.");
 		myBinaryTree.remove(1);
+		myBinaryTree.remove(3);
+		myBinaryTree.remove(7);
+		myBinaryTree.remove(55);
+		System.out.println("Max: [" + myBinaryTree.max() + "]");
+		System.out.println("Min: [" + myBinaryTree.min() + "]");
 
 
 	}

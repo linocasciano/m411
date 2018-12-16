@@ -41,5 +41,40 @@ public class MyBinaryTreeNode {
 	public boolean isLeave() {
 		return left == null && right == null;
 	}
+	
+	public int childrenCount() {
+		int count = 1;
+		if (isLeave()) {
+			count = 0;
+		} 
+		if (left!=null && right!=null) {
+			count = 2;
+		}
+		return count;
+	}
+	
+	public MyBinaryTreeNode max() {
+		return max(this);
+	}
+	
+	private MyBinaryTreeNode max(MyBinaryTreeNode node) {
+		if (node != null && node.right != null) { 
+			return max(node.right); 
+		} else {
+			return node;
+		}
+	}
+	
+	public MyBinaryTreeNode min() {
+		return min(this);
+	}
+	
+	private MyBinaryTreeNode min(MyBinaryTreeNode node) {
+		if (node != null && node.left != null) {
+			return min(node.left);
+		} else {
+			return node;
+		}
+	}
 
 }

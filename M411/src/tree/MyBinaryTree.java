@@ -49,8 +49,32 @@ public class MyBinaryTree {
 			}
 		}
 		// node has one child
+		if (node.childrenCount() == 1) {
+			System.out.println("Node has one child.");
+			if (node.getLeft() != null) {
+				node.getLeft().setParent(node.getParent());
+				if (node.getParent().getLeft() == node) {
+					node.getParent().setLeft(node.getLeft());
+				} else {
+					node.getParent().setRight(node.getLeft());
+				}
+			} else {
+				node.getRight().setParent(node.getParent());
+				if (node.getParent().getLeft() == node) {
+					node.getParent().setLeft(node.getRight());
+				} else {
+					node.getParent().setRight(node.getRight());
+				}
+			}
+		}
 		
 		// node has two children
+		if (node.childrenCount() == 2) {
+			// replace the element of the node to be removed with the biggest element in the subtree
+			MyBinaryTreeNode max = node.max();
+			node.setElement(max.getElement());			
+			max.getParent().setRight(max.getLeft());			
+		}
 
 	}
 
@@ -60,6 +84,16 @@ public class MyBinaryTree {
 		}
 		MyBinaryTreeNode node = searchNode(root, i);
 		return node != null;
+	}
+	
+	public Integer max() {
+		if (this.isEmpty()) { return null; }
+		return this.root.max().getElement();
+	}
+	
+	public Integer min() {
+		if (this.isEmpty()) { return null; }
+		return this.root.min().getElement();
 	}
 
 	private MyBinaryTreeNode searchNode(MyBinaryTreeNode node, Integer i) {
