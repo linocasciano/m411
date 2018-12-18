@@ -7,6 +7,7 @@ import java.util.List;
 public class FourColourMap {
 
 	HashMap<Integer,ArrayList> map = new HashMap<Integer,ArrayList>();
+	boolean foundsolution = false;
 	
 	public FourColourMap() {
 		initMap();
@@ -65,15 +66,22 @@ public class FourColourMap {
 	
 	private void solve(int[] a, int i) {
 		if (a.length == i) { 
+			System.out.println("Found solution");
 			printMap(a);
+			foundsolution = true;
 			return; 
 	    }
 		for (int j=0; j<4; j++) {
+			if (foundsolution) { break; }
 			a[i] = j; 
 			if (isConsitent(a,i)) {
 				solve(a,i+1);
-			}
+			} else {
+				System.out.println("Trying next possible solution...");
+			} 
 		}
+		System.out.println("Backtracking...");
+		printMap(a);
 		
 	}
 	
@@ -86,7 +94,9 @@ public class FourColourMap {
 			for (int k=0; k<neighbours.size(); k++) {				
 				neighbour = neighbours.get(k);
 				if (j==neighbour) { continue; }
-				if (a[j] == a[neighbour]) { return false; }
+				if (a[j] == a[neighbour]) { 
+					return false; 
+				}
 			}			
 		}
 		return true;
