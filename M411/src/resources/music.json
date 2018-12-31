@@ -1,14 +1,16 @@
-"CDs": [
-	{
-		"title": "Greatest Hits",
-		"artist": "Elvis",
-		"country": "USA",
-		"year": 1977
-	},
-	{
-		"title": "Best of Police",
-		"artist": "Police",
-		"country": "UK",
-		"year": 1977
-	}
-]
+{
+	"CDs": [
+		{
+			"TITLE": "Greatest Hits",
+			"ARTIST": "Elvis",
+			"COUNTRY": "USA",
+			"YEAR": "1977"
+		},
+		{
+			"TITLE": "Best of Police",
+			"ARTIST": "Police",
+			"COUNTRY": "UK",
+			"YEAR": "1977"
+		}
+	]
+}
