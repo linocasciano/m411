@@ -46,9 +46,17 @@ public class XMLUtil {
 			Node child = null;
 			for (int i = 0; i < children.getLength(); i++) {
 				child = children.item(i);
+				//System.out.println("NodeType [" + child.getNodeType() + "]");
 				if (child.getNodeType() == Node.ELEMENT_NODE) {
-					//System.out.println("NodeType [" + child.getNodeType() + "]");
+					System.out.print("Element node, ");
 					System.out.println("NodeName[" + child.getNodeName() + "]");
+					System.out.println("NodeValue [" + child.getNodeValue() + "]");
+					parseRecursive(child);
+				}
+				if (child.getNodeType() == Node.TEXT_NODE) {
+					System.out.print("Text node, ");
+					System.out.println("NodeName [" + child.getNodeName() + "]");
+					System.out.println("NodeValue [" + child.getNodeValue() + "]");
 					parseRecursive(child);
 				}
 			}
