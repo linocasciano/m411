@@ -13,20 +13,12 @@ public class jsonTest {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		String filename = "/resources/music.json";
-		// create a document builder
 		InputStream is = jsonTest.class.getResourceAsStream(filename);
-		File f = new File(jsonTest.class.getResource(filename).getFile());
-		Scanner scanner = new Scanner(f);
-		String line;
-		while (scanner.hasNext()) {
-			line = scanner.nextLine();
-			System.out.println(line);
-		}
-		scanner.close();
 		JSONTokener jt = new JSONTokener(is);
-		//Object o = jt.nextValue();
-		while (jt.more()) {
-			System.out.println(jt.nextValue().toString());
+		JSONArray ja = (JSONArray)jt.nextValue();
+		for (int i=0; i<ja.length(); i++) {
+			JSONObject jo = ja.getJSONObject(i);
+			System.out.println("Title = [" + jo.get("TITLE") + "]");
 		}
 	}
 }
