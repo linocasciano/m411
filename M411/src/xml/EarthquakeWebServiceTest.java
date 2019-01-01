@@ -15,7 +15,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-public class WebServiceClientTest {
+import helper.WebServiceClient;
+
+public class EarthquakeWebServiceTest {
 
 	public static void main(String[] args) throws IOException, SAXException {
 		// TODO Auto-generated method stub
