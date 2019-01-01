@@ -26,6 +26,18 @@ public class SwissTransportRestAPITest {
 		JSONArray ja = (JSONArray) jo.get("stations");
 		JSONObject station = (JSONObject) ja.get(0);
 		System.out.println(station.get("coordinate"));
+		
+		ressource = "v1/connections";
+		query = "?from=Zürich&to=Bern";
+		url = new URL(host + ressource + query);
+		wsc = new WebServiceClient(url);
+		is = wsc.getInputStream();
+	    jt = new JSONTokener(is);
+	    jo = (JSONObject)jt.nextValue();
+	    ja = jo.getJSONArray("connections");
+	    for (int i=0; i<ja.length(); i++) {
+	    	System.out.println(ja.get(i));
+	    }
 	}
 
 }
