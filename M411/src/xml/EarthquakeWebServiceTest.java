@@ -24,10 +24,12 @@ public class EarthquakeWebServiceTest {
 		String host = "https://earthquake.usgs.gov/";
 		String path = "fdsnws/event/1/";
 		String format = "geojson";
-		String query = "query?format=" + format + "&starttime=2016-09-29&endtime=2016-09-30&minmagnitude=5";
+		String query = "query?format=" + format + "&starttime=2018-09-29&endtime=2018-09-30&minmagnitude=5";
 		URL url = new URL(host + path + query);
 		WebServiceClient wsc = new WebServiceClient(url);
 
+		System.out.println("Processing " + url.toString());
+		
 		if (format.equals("geojson")) {
 			System.out.println("Processing " + format + "...");
 			InputStream is = wsc.getInputStream();
@@ -37,8 +39,8 @@ public class EarthquakeWebServiceTest {
 			ja.forEach((j)-> System.out.println(j));
 			for (int i = 0; i < ja.length(); i++) {
 				JSONObject tmp = (JSONObject) ja.get(i);
-				JSONObject o = (JSONObject) tmp.get("geometry");
-				System.out.println(o);
+				JSONObject o = (JSONObject) tmp.get("properties");
+				System.out.println("Place = " + o.get("place"));
 			}
 		}
 		
@@ -46,9 +48,7 @@ public class EarthquakeWebServiceTest {
 			System.out.println("Processing " + format + "...");
 			//Document d = wsc.getDocument();
 			DocumentBuilder db = XMLUtil.newDocumentBuilder();
-			System.out.println("Calling " + url.toString());
-			Document d = db.parse(url.openStream());
-			
+			Document d = db.parse(url.openStream());	
 			NodeList nodeList = d.getElementsByTagName("description");
 			Node node = null;
 			for (int i = 0; i < nodeList.getLength(); i++) {

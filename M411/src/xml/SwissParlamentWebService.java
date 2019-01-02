@@ -17,6 +17,7 @@ import helper.WebServiceClient;
 public class SwissParlamentWebService {
 
 	public static void main(String[] args) throws SAXException, IOException {
+		// Not working since the endpoint does not return a plain xml but rather a normal HTML page.
 		// TODO Auto-generated method stub
 		String host = "http://ws-old.parlament.ch/";
 		String path = "sessions";
