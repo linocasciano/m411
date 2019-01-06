@@ -100,7 +100,7 @@ public class MyBinaryTree {
 		System.out.println("Removing node with two children.");
 		// replace the element of the node to be removed with the biggest element in the
 		// subtree
-		MyBinaryTreeNode max = node.max();
+		MyBinaryTreeNode max = node.getLeft().max();
 		System.out.println("Max element of subtree is [" + max.getElement() + "]");
 		node.setElement(max.getElement());
 		// max is either a leaf or has one child
