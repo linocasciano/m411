@@ -3,7 +3,7 @@ package tree;
 import java.util.ArrayList;
 
 public class MyBinaryTreeTest {
-
+	
 	public static void main(String[] args) {
 		//MyBinaryTree myBinaryTree = generateBinaryTree();
 		
@@ -13,12 +13,16 @@ public class MyBinaryTreeTest {
 			myBinaryTree.insert(a[i]);
 		}
 		System.out.println("Tree populated.");
+		inOrderTraversal(myBinaryTree.getRoot());
+		System.out.println();
+		
 		myBinaryTree.remove(1);
 		myBinaryTree.remove(3);
-		myBinaryTree.remove(7);
-		myBinaryTree.remove(55);
+		myBinaryTree.remove(17);
 		System.out.println("Max: [" + myBinaryTree.max() + "]");
 		System.out.println("Min: [" + myBinaryTree.min() + "]");
+		
+		inOrderTraversal(myBinaryTree.getRoot());
 
 
 	}
@@ -28,7 +32,7 @@ public class MyBinaryTreeTest {
 		if (current.getLeft() != null) {
 			inOrderTraversal(current.getLeft());
 		}
-		System.out.println(current.getElement());
+		System.out.print(current.getElement() + ", ");
 		if (current.getRight() != null) {
 			inOrderTraversal(current.getRight());
 		}

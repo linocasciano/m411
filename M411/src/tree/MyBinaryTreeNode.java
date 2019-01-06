@@ -38,13 +38,13 @@ public class MyBinaryTreeNode {
 		this.parent = parent;
 	}
 
-	public boolean isLeave() {
+	public boolean isLeaf() {
 		return left == null && right == null;
 	}
 	
 	public int childrenCount() {
 		int count = 1;
-		if (isLeave()) {
+		if (isLeaf()) {
 			count = 0;
 		} 
 		if (left!=null && right!=null) {
