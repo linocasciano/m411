@@ -20,7 +20,7 @@ public class XMLFileTest {
 		// create a document builder
 		DocumentBuilder db = XMLUtil.newDocumentBuilder();
 		InputSource source = new InputSource(XMLFileTest.class.getResourceAsStream(filename));
-		
+
 		// get a reference to the whole document
 		Document d = db.parse(source);
 
@@ -30,28 +30,30 @@ public class XMLFileTest {
 		Node node = null;
 		for (int i = 0; i < nodeList.getLength(); i++) {
 			// the attributes of an element are considered nodes too
-			node = XMLUtil.findSubNode("TITLE", nodeList.item(i));
-			System.out.println("Textcontent = [" + node.getTextContent() + "]");
+			node = XMLUtil.findSubNode("ARTIST", nodeList.item(i));
+			//System.out.println("Textcontent = [" + node.getTextContent() + "]");
 			NodeList textList = node.getChildNodes();
 			// Could there be a second item? What happens if its empty? --> Empty string?
 			// There is only one text element in this example.
-			System.out.println("Number of text elements [" + textList.getLength() + "]");
+			// System.out.println("Number of text elements [" + textList.getLength() + "]");
 			// there are no attributes in this example.
-			NamedNodeMap nnm = node.getAttributes();
-			System.out.println("Printing attributes...");
-			for (int j=0; j<nnm.getLength(); j++) {
-				System.out.println(nnm.item(j));
-			}
-			System.out.println("TITLE = " + textList.item(0).getNodeValue());
+			/*
+			 * NamedNodeMap nnm = node.getAttributes();
+			 * 
+			 * System.out.println("Printing attributes..."); for (int j = 0; j <
+			 * nnm.getLength(); j++) { System.out.println(nnm.item(j)); }
+			 */
+
+			System.out.println("ARTIST = " + textList.item(0).getNodeValue());
 		}
-		
-		
-		  System.out.println("Parsing the document..."); 
-		  Element root = d.getDocumentElement();
-		  
-		  System.out.println("root=[" + root.getNodeName() + "]");
-		  XMLUtil.parseRecursive(d.getDocumentElement());
-		 
+
+		/*
+		 * System.out.println("Parsing the document..."); Element root =
+		 * d.getDocumentElement();
+		 * 
+		 * System.out.println("root=[" + root.getNodeName() + "]");
+		 * XMLUtil.parseRecursive(d.getDocumentElement());
+		 */
 
 	}
 

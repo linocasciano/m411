@@ -18,7 +18,7 @@ public class jsonTest {
 		JSONArray ja = (JSONArray)jt.nextValue();
 		for (int i=0; i<ja.length(); i++) {
 			JSONObject jo = ja.getJSONObject(i);
-			System.out.println("Title = [" + jo.get("TITLE") + "]");
+			System.out.println("Artist = [" + jo.get("ARTIST") + "]");
 		}
 	}
 }
