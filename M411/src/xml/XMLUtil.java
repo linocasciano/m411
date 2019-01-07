@@ -41,24 +41,23 @@ public class XMLUtil {
 	}
 
 	public static void parseRecursive(Node n) {
+		if (n.getNodeType() == Node.ELEMENT_NODE) {
+			System.out.print("Element node, ");
+			System.out.println("NodeName[" + n.getNodeName() + "]");
+			System.out.println("NodeValue [" + n.getNodeValue() + "]");
+		}
+		if (n.getNodeType() == Node.TEXT_NODE) {
+			System.out.print("Text node, ");
+			System.out.println("NodeName [" + n.getNodeName() + "]");
+			System.out.println("NodeValue [" + n.getNodeValue() + "]");
+		}
 		if (n.hasChildNodes()) {
 			NodeList children = n.getChildNodes();
 			Node child = null;
 			for (int i = 0; i < children.getLength(); i++) {
 				child = children.item(i);
-				//System.out.println("NodeType [" + child.getNodeType() + "]");
-				if (child.getNodeType() == Node.ELEMENT_NODE) {
-					System.out.print("Element node, ");
-					System.out.println("NodeName[" + child.getNodeName() + "]");
-					System.out.println("NodeValue [" + child.getNodeValue() + "]");
-					parseRecursive(child);
-				}
-				if (child.getNodeType() == Node.TEXT_NODE) {
-					System.out.print("Text node, ");
-					System.out.println("NodeName [" + child.getNodeName() + "]");
-					System.out.println("NodeValue [" + child.getNodeValue() + "]");
-					parseRecursive(child);
-				}
+
+				parseRecursive(child);
 			}
 		}
 	}

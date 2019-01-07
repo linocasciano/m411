@@ -45,13 +45,13 @@ public class XMLFileTest {
 			System.out.println("TITLE = " + textList.item(0).getNodeValue());
 		}
 		
-		/*
-		 * System.out.println("Parsing the document..."); Element root =
-		 * d.getDocumentElement();
-		 * 
-		 * System.out.println("root=[" + root.getNodeName() + "]");
-		 * XMLUtil.parseRecursive(d.getDocumentElement());
-		 */
+		
+		  System.out.println("Parsing the document..."); 
+		  Element root = d.getDocumentElement();
+		  
+		  System.out.println("root=[" + root.getNodeName() + "]");
+		  XMLUtil.parseRecursive(d.getDocumentElement());
+		 
 
 	}
 
