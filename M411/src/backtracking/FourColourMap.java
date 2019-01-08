@@ -65,7 +65,7 @@ public class FourColourMap {
 	}
 
 	private void solve(int[] a, int i) {
-		printMap(a);
+		//printMap(a);
 		if (a.length == i) {
 			System.out.println("Found solution");
 			foundsolution = true;
@@ -88,6 +88,7 @@ public class FourColourMap {
 
 	private boolean isConsitent(int[] a, int i) {
 		System.out.println("Checking consistency until up [" + i + "]");
+		printMap(a);
 		/**
 		 * Get the colours of the neighbours and check that no two neighbours have
 		 * the same colour.
