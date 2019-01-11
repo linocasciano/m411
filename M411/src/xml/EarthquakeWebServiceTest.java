@@ -23,7 +23,7 @@ public class EarthquakeWebServiceTest {
 		// TODO Auto-generated method stub
 		String host = "https://earthquake.usgs.gov/";
 		String path = "fdsnws/event/1/";
-		String format = "geojson";
+		String format = "xml";
 		String query = "query?format=" + format + "&starttime=2018-09-29&endtime=2018-09-30&minmagnitude=5";
 		URL url = new URL(host + path + query);
 		WebServiceClient wsc = new WebServiceClient(url);
