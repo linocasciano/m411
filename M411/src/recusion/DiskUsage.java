@@ -7,6 +7,7 @@ public class DiskUsage {
 	public static void main(String[] args) {
 		long size = diskUsage(new File("/users/capa/tmp"));
 		System.out.println("Total size is [" + size + "] Bytes.");
+		
 	}
 
 	public static long diskUsage(File f) {
