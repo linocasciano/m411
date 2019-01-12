@@ -2,12 +2,18 @@ package recusion;
 
 import java.io.File;
 
+
+/**
+ * Adds up the sizes of the files in a directory and its subdirectories recursively.
+ * It is a nice demonstration of how a value is passed up the call stack as the stack
+ * Unwinds.
+ */
 public class DiskUsage {
 
 	public static void main(String[] args) {
-		long size = diskUsage(new File("/users/capa/tmp"));
+		String directory = "c:\\temp";
+		long size = diskUsage(new File(directory));
 		System.out.println("Total size is [" + size + "] Bytes.");
-
 	}
 
 	public static long diskUsage(File f) {
