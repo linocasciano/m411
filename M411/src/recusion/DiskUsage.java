@@ -2,6 +2,11 @@ package recusion;
 
 import java.io.File;
 
+/**
+ * Demonstrates how a variable can be passed back and summed up while the stack is unwinding.
+ * Sums up the size of the files in a directory recursively.
+ *
+ */
 public class DiskUsage {
 
 	public static void main(String[] args) {
