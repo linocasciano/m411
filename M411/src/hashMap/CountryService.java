@@ -8,9 +8,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 
 public class CountryService {
-	
-	HashMap<String,String> countries = new HashMap<>();
-	
+
+	HashMap<String, String> countries = new HashMap<>();
+
 	public CountryService() {
 		try {
 			init();
@@ -19,7 +19,7 @@ public class CountryService {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void init() throws IOException {
 		String filename = "/resources/countries_simplified.csv";
 		InputStream is = CountryService.class.getResourceAsStream(filename);
@@ -30,17 +30,19 @@ public class CountryService {
 		String separator = ",";
 		while ((inputLine = br.readLine()) != null) {
 			lineParts = inputLine.split(separator);
-			countries.put(lineParts[0], lineParts[1]);
+			if (lineParts[0].length() < 4) {
+				countries.put(lineParts[0], lineParts[1]);
+			}
 		}
 		br.close();
 	}
-	
+
 	public String getCountryName(String countryCode) {
-		return countries.get(countryCode);		
+		return countries.get(countryCode);
 	}
-	
+
 	public void printCountries() {
-		//TODO with a classical iteration
-		countries.forEach((k,v) -> System.out.println("[" + k + "]=[" + v + "]"));
+		// TODO with a classical iteration
+		countries.forEach((k, v) -> System.out.println("[" + k + "]=[" + v + "]"));
 	}
 }
