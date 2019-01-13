@@ -10,6 +10,9 @@ public class PrintDirectories {
 		printDirectories(new File("/users/capa/tmp"));
 	}
 
+	/**
+	 * @param f
+	 */
 	public static void printDirectories(File f) {
 		// System.out.println("Checking " + f);
 		if (!f.isDirectory()) {
@@ -26,7 +29,7 @@ public class PrintDirectories {
 		for (File g : fileList) {
 			printDirectories(g);
 		}
-		System.out.println(f);
+		//System.out.println(f);
 	}
 
 	public static void searchFile(File directory, String filename) {
