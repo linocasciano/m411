@@ -5,8 +5,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 
 public class CountryService {
+	
+	HashMap<String,String> countries = new HashMap<>();
 	
 	public CountryService() {
 		try {
@@ -27,10 +30,17 @@ public class CountryService {
 		String separator = ",";
 		while ((inputLine = br.readLine()) != null) {
 			lineParts = inputLine.split(separator);
-			System.out.println(inputLine);
-			
+			countries.put(lineParts[0], lineParts[1]);
 		}
 		br.close();
 	}
-
+	
+	public String getCountryName(String countryCode) {
+		return countries.get(countryCode);		
+	}
+	
+	public void printCountries() {
+		//TODO with a classical iteration
+		countries.forEach((k,v) -> System.out.println("[" + k + "]=[" + v + "]"));
+	}
 }
