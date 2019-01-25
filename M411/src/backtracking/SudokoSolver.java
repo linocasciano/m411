@@ -75,6 +75,7 @@ public class SudokoSolver {
 	}
 
 	private void solve(int[][] solution, int row, int column) {
+		// indexes are zero based
 		if (row == boardsize) {
 			System.out.println("Found solution");
 			solutionfound = true;
